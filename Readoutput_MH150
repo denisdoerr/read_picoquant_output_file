@@ -1,4 +1,3 @@
-
 # Read_OUT.py    Read binary files recorded by PQ device (MH150) with demo library
 # This is demo code. Use at your own risk. No warranties.
 # Denis Doerr, PicoQUant GmbH, March 2022
@@ -22,6 +21,7 @@ import os
 
 
 # global variables
+global syncrate 
 global inputfile
 global outputfile
 global recNum
@@ -32,8 +32,19 @@ global numRecords
 global isT2
 
 
-isT2=False #put "False" here if you analyse file measured in T3 mode and "True" if you analyse file measured in T3 mode
-globRes = 1.0000066667111115e-06   #for T2 data use the max resolution 8.000000e-11 s  of Mh150, for T3 date the max resilution is 1/reprate
+isT2=False #put "False" here if you analyse file measured in T3 mode and "True" if you analyse file measured in T2 mode
+syncrate =999993.333333 
+#We use   999993.333333 Hz value from the laserdriver. in T2 mode this value is not used. 
+#use here syncrate of your Laser.
+
+globRes=8.000000e-11 
+#use here time resolution of TCSPC device. In T3 mode this value is not used. 
+#We use  the max time resolution 8.000000e-11 s   of Mh150 for our demo.
+
+if isT2==False:
+    globRes =1/syncrate
+    
+#for T2 data use the max resolution 8.000000e-11 s  of Mh150, for T3 date the max resilution is 1/reprate
 #globRes =8.000000e-11
 #Note the global resolution is dependent on min resolution of your device (see manual)
 #and binning selected in your record software  in our example we use Mh150 with binning 0
