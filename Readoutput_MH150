@@ -32,7 +32,7 @@ global numRecords
 global isT2
 
 
-isT2=False #put "False" here if you analyse file measured in T3 mode and "True" if you analyse file measured in T2 mode
+isT2=False #put "False" here if you analyse file measured in T3 mode and "True" if you analyse file measured in T3 mode
 syncrate =999993.333333 
 #We use   999993.333333 Hz value from the laserdriver. in T2 mode this value is not used. 
 #use here syncrate of your Laser.
@@ -41,8 +41,7 @@ globRes=8.000000e-11
 #use here time resolution of TCSPC device. In T3 mode this value is not used. 
 #We use  the max time resolution 8.000000e-11 s   of Mh150 for our demo.
 
-if isT2==False:
-    globRes =1/syncrate
+
     
 #for T2 data use the max resolution 8.000000e-11 s  of Mh150, for T3 date the max resilution is 1/reprate
 #globRes =8.000000e-11
@@ -56,6 +55,9 @@ outputfilepath="output_" + inputfilepath.rstrip(".out")+".txt"
 #outputfile=outputfilepath
 inputfile = open(inputfilepath, "rb") #inputfile
 outputfile = io.open(outputfilepath, "w+", encoding="utf-16le")
+
+
+
 
 def gotOverflow(count):
     global outputfile, recNum
@@ -178,8 +180,9 @@ def readHT2(version):
 
             
 outputfile.write("\n-----------------------\n")
-oflcorrection=0
-if isT2 == False:   
+oflcorrection=0   
+if isT2 == False:  
+    globRes =1/syncrate
     print("MultiHarp T3 data")
     outputfile.write(" T3 data\n")
     outputfile.write("\nrecord# chan   nsync truetime/ns dtime\n")
