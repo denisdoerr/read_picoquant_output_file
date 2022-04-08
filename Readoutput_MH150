@@ -36,7 +36,7 @@ global isT2
 isT2=False #put "False" here if you analyse file measured in T3 mode and "True" if you analyse file measured in T3 mode
 syncrate =999993.333333  #use here syncrate of your Laser.
 #In T2 mode this value is not used. 
-#We use   999993.333333 Hz value from the laserdriver. 
+#We use   999993.333333 Hz value from our laserdriver for our demo.
 
 globRes=8.000000e-11  #use here time resolution of TCSPC device.
 #In T3 mode this value is not used. 
@@ -44,7 +44,6 @@ globRes=8.000000e-11  #use here time resolution of TCSPC device.
 
    
 #for T2 data use the max resolution 8.000000e-11 s  of Mh150, for T3 date the max resilution is 1/reprate
-#globRes =8.000000e-11
 #Note the global resolution is dependent on min resolution of your device (see manual)
 #and binning selected in your record software  in our example we use Mh150 with binning 0
 
