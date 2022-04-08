@@ -89,11 +89,13 @@ print('number of records is ',numRecords)
 #definition of reading routine for the file recorded  T3 and T2 Modes readHT3 and readHT2 respectively
 #Note for this example we use Multiharp 150 
 #but for different devices from picoquant you will need different reading routins, 
-#all individual cases are listed in the script readptu.py
+#all individual cases are listed in the script readptu.py (https://github.com/PicoQuant/PicoQuant-Time-Tagged-File-Format-Demos/tree/master/PTU/Python)
 
 def readHT3(version):
 #Note the version in "readHT3(version)""   could be 1 o 2 for this example we use Multiharp 150
-#where version needs to be set to = 2 the settings for other devices see  script readptu.py 
+#where version needs to be set to = 2 the settings for other devices see  script readptu.py
+#https://github.com/PicoQuant/PicoQuant-Time-Tagged-File-Format-Demos/tree/master/PTU/Python
+    
     global inputfile, outputfile, recNum, oflcorrection, numRecords
     
     T3WRAPAROUND = 1024
@@ -134,6 +136,7 @@ def readHT3(version):
 def readHT2(version):
 #Note the version in "readHT2(version)""   could be 1 o 2 for this example we use Multiharp 150
 #where version needs to be set to = 2 the settings for other devices see  script readptu.py 
+#https://github.com/PicoQuant/PicoQuant-Time-Tagged-File-Format-Demos/tree/master/PTU/Python
     global inputfile, outputfile, recNum, oflcorrection, numRecords
     T2WRAPAROUND_V1 = 33552000
     T2WRAPAROUND_V2 = 33554432
