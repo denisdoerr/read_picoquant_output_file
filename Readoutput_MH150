@@ -77,7 +77,7 @@ def gotPhoton(timeTag, channel, dtime):
                          timeTag, (timeTag * globRes * 1e9), dtime))
         
         
-#records number estimation from filesize works only becouse the file has no header
+#records number from filesize, works  becouse the file has no header
 #number of records (numRecords)  is file size (in bytes) /record length (32 bites or 4 bytes) 
 
 file_size = os.path.getsize(inputfilepath)
